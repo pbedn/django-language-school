@@ -34,3 +34,6 @@ celerybeat-schedule
 
 # Idea project settings
 .idea
+!.idea/runConfigurations/Run_Server.xml
+!.idea/runConfigurations/Run_Tests.xml
+
