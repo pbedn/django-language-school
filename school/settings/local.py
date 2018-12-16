@@ -10,15 +10,12 @@ HOST = 'http://127.0.0.1:8000'
 
 AUTH_PASSWORD_VALIDATORS = []
 
-INSTALLED_APPS += ['django-extensions', ]
+INSTALLED_APPS += ['django_extensions', ]
+
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'school',
-        'USER': 'school',
-        'PASSWORD': 'pass',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
