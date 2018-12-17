@@ -37,3 +37,5 @@ celerybeat-schedule
 !.idea/runConfigurations/Run_Server.xml
 !.idea/runConfigurations/Run_Tests.xml
 
+school.db
+

@@ -16,6 +16,8 @@ INSTALLED_APPS += ['django_extensions', ]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # need to use str here a sit would not be fixed until Python 3.8
+        # FUTURE: Remove str
+        'NAME': str(PROJECT_DIR / 'school.db'),
     }
 }
