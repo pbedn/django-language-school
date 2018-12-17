@@ -29,13 +29,15 @@ docs/_build/
 celerybeat-schedule
 
 # Environments
-.env
-.venv
+.venv/
 
 # Idea project settings
 .idea
 !.idea/runConfigurations/Run_Server.xml
 !.idea/runConfigurations/Run_Tests.xml
 
-school.db
+# Env variables
+.env
 
+# Other
+school.db
