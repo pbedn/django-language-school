@@ -4,9 +4,20 @@ Application for language school management
 
 ## Setup
 
+Install poetry globally (recommended)
+```
+curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+```
+
+Create virtual environment manually (recommended)
+```
+virtualenv path/to/your/venv -p python3
+```
+
+Update environmental variables, install dependencies and activate settings
 ```
 cp .env-sample .env # Update the variables on production
-pip install -r requirements/[prod,local].txt
+poetry install  # use --dev for local
 export DJANGO_SETTINGS_MODULE=school.settings.[prod,local]
 ```
 

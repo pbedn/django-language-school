@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "django-language-school"
+version = "0.1.0"
+description = "Language School Management"
+authors = ["Paweł Bednarz <pbedn@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+django = "^2.1"
+django-dotenv = "^1.4"
+
+[tool.poetry.dev-dependencies]
+django-extensions = "^2.1"
+black = { version = "*", allows-prereleases = true }
