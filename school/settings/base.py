@@ -44,6 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+PROJECT_APPS = [
+    'school.accounts'
+]
+
+INSTALLED_APPS += PROJECT_APPS
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,6 +61,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'school.urls'
+AUTH_USER_MODEL = 'accounts.User'
 
 TEMPLATES = [
     {
