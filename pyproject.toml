@@ -8,6 +8,7 @@ authors = ["Paweł Bednarz <pbedn@users.noreply.github.com>"]
 python = "^3.6"
 django = "^2.1"
 django-dotenv = "^1.4"
+django-bulma = "^0.5.3"
 
 [tool.poetry.dev-dependencies]
 django-extensions = "^2.1"
