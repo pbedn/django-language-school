@@ -61,7 +61,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'school.urls'
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 TEMPLATES = [
     {
@@ -134,3 +134,6 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = PROJECT_DIR / 'media'
 STATIC_ROOT = PROJECT_DIR / 'static_root'
 STATICFILES_DIRS = [PROJECT_DIR / 'static']
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
