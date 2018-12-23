@@ -1,18 +1,46 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Language School Management{% endblock %}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <title>
+      {% block title %}BASE TEMPLATE{% endblock %}
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+
+    {% block stylesheets %}
+    {% endblock %}
+
   </head>
+
   <body>
-  <section class="section">
     <div class="container">
+
+    <div class="row">
+      {% block nav_topbar %}
+      {% endblock %}
+    </div>
+
+    <hr>
+
+    <div class="row">
+      {% block nav_sidebar %}
+      {% endblock %}
+
       {% block content %}
       {% endblock %}
     </div>
-  </section>
+
+    <hr>
+
+    <div class="row">
+      {% block footer %}
+      {% endblock %}
+    </div>
+
+    </div>
   </body>
 </html>

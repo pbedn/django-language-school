@@ -1,6 +1,4 @@
 {% extends 'base.html' %}
-{#{%  load crispy_forms_tags %}#}
-{% load bulma_tags %}
 
 {% block title %}Sign Up{% endblock %}
 
@@ -11,7 +9,7 @@
   </p>
 <form class="signup" method="post">
   {% csrf_token %}
-  {{ form|bulma }}
+  {{ form.as_p }}
   {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
     {% endif %}

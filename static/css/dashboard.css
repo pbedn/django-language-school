@@ -1,0 +1,34 @@
+body {
+    margin: 1em 1em;
+    font-size: large;
+}
+
+
+.container {
+    width: 98%;
+    padding: 0;
+    margin: 1% 1%;
+    max-width: 1920px;
+    border-style: dashed;
+    border-color: #333333;
+    border-width: thin;
+}
+
+.sidebar {
+    border-style: dashed;
+    border-color: #333333;
+    border-width: thin;
+}
+
+.content {
+    margin-left: 2%;
+    border-style: dashed;
+    border-color: #333333;
+    border-width: thin;
+}
+
+.footer {
+    border-style: dashed;
+    border-color: #333333;
+    border-width: thin;
+}
