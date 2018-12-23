@@ -1,0 +1,40 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Teacher List{% endblock title %}
+
+{% block content %}
+  <div class="nine columns content">
+    <table class="table">
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>Link</td>
+      <td>First name</td>
+      <td>Last_name</td>
+      <td>Email</td>
+      <td>Phone</td>
+      <td>Notes</td>
+      <td>Date of birth</td>
+      <td>Basic course rate</td>
+      <td>Basic individual lesson rate</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for object in object_list %}
+    <tr>
+        <td>{{object.pk}}</td>
+        <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+        <td>{{ object.first_name }}</td>
+        <td>{{ object.last_name }}</td>
+        <td>{{ object.email }}</td>
+        <td>{{ object.phone }}</td>
+        <td>{{ object.notes }}</td>
+        <td>{{ object.date_of_birth }}</td>
+        <td>{{ object.basic_course_rate }}</td>
+        <td>{{ object.basic_individual_lesson_rate }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <a class="btn btn-primary" href="{% url 'teacher_create' %}">Create new Teacher</a>
+  </div>
+{% endblock %}

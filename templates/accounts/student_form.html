@@ -1,0 +1,14 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Student Form{% endblock title %}
+
+{% block content %}
+    <div class="nine columns content">
+    <a class="btn btn-default" href="{% url 'student_list' %}">Student Listing</a>
+    <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+    </div>
+{% endblock %}

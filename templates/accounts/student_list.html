@@ -1,0 +1,41 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Student List{% endblock title %}
+
+{% block content %}
+    <div class="nine columns content">
+    <table class="table">
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>Link</td>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Phone</td>
+      <td>General Discount</td>
+      <td>Date Of Birth</td>
+      <td>Company Name</td>
+      <td>Company Address</td>
+      <td>Company Tax Number</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for object in object_list %}
+    <tr>
+      <td>{{object.pk}}</td>
+      <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+      <td>{{ object.first_name }}</td>
+      <td>{{ object.last_name }}</td>
+      <td>{{ object.phone }}</td>
+      <td>{{ object.general_discount }}</td>
+      <td>{{ object.date_of_birth }}</td>
+      <td>{{ object.company_name }}</td>
+      <td>{{ object.company_address }}</td>
+      <td>{{ object.company_tax_number }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <a class="btn btn-primary" href="{% url 'student_create' %}">Create new Student</a>
+    </div>
+{% endblock %}

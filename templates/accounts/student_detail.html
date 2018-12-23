@@ -1,0 +1,20 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Student Detail{% endblock title %}
+
+{% block content %}
+    <div class="nine columns content">
+    <p><a class="btn btn-default" href="{% url 'student_list' %}">Student Listing</a></p>
+    <table class="table">
+    <tr><td>first_name</td><td>{{ object.first_name }}</td></tr>
+    <tr><td>last_name</td><td>{{ object.last_name }}</td></tr>
+    <tr><td>email</td><td>{{ object.email }}</td></tr>
+    <tr><td>phone</td><td>{{ object.phone }}</td></tr>
+    <tr><td>general_discount</td><td>{{ object.general_discount }}</td></tr>
+    <tr><td>date_of_birth</td><td>{{ object.date_of_birth }}</td></tr>
+    <tr><td>company_name</td><td>{{ object.company_name }}</td></tr>
+    <tr><td>company_address</td><td>{{ object.company_address }}</td></tr>
+    <tr><td>company_tax_number</td><td>{{ object.company_tax_number }}</td></tr>
+    </table>
+    <a class="btn btn-primary" href="{{object.get_update_url}}">Edit Student</a>
+    </div>
+{% endblock %}
