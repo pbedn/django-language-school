@@ -11,18 +11,14 @@ class CustomUserCreationFormTestCase(TestCase):
     def test_valid_data(self):
         form = CustomUserCreationForm({
             'email': "test@example.com",
-            'password1': "pass",
-            'password2': "pass",
-            'first_name': "First",
-            'last_name': "Last",
+            'password1': "SuperStrong123###",
+            'password2': "SuperStrong123###",
         })
         self.assertTrue(form.is_valid())
         comment = form.save()
         self.assertEqual(comment.email, "test@example.com")
         self.user = get_user_model().objects.get(email="test@example.com")
-        self.assertEqual(self.user.check_password('pass'), True)
-        self.assertEqual(comment.first_name, "First")
-        self.assertEqual(comment.last_name, "Last")
+        self.assertEqual(self.user.check_password('SuperStrong123###'), True)
 
     def test_blank_data(self):
         CustomUserCreationForm({})

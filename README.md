@@ -1,6 +1,11 @@
 # django-language-school
 
+[![CircleCI](https://circleci.com/gh/pbedn/django-language-school.svg?style=svg)](https://circleci.com/gh/pbedn/django-language-school)
+
+
 Application for language school management
+
+---
 
 ## Setup
 
@@ -23,15 +28,24 @@ export DJANGO_SETTINGS_MODULE=school.settings.[prod,local]
 
 ## Run application
 
-* Django server
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```
 
-## Code
-
-Application written in Python 3.6 and Django 2.1.
+### Backend
 Settings are split between local and production, and sensitive secrets
-are read from .env file created manually.
+should be read from .env file created manually.
+
+Stack: Django 2.1, Python 3.6. 
+
+### Frontend
+Frontend is as simple as it can be, just for demo purpouses, and not for production.
+
+Stack: Django Templates, Skeleton CSS framework.
+
+### Deployment
+Connected with CircleCI for continuous integration
+
+Stack: CircleCI
