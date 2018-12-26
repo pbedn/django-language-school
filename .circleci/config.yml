@@ -51,7 +51,8 @@ jobs:
           command: |
             . venv/bin/activate
             export DJANGO_SETTINGS_MODULE=school.settings.test
-            python manage.py test
+            coverage run --source='.' python manage.py test
+            coverage html -d test-reports
 
       - store_artifacts:
           path: test-reports
