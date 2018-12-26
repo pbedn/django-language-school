@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DetailView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.shortcuts import redirect
 
 from .forms import CustomUserCreationForm, StudentCreationForm, TeacherCreationForm, StudentForm, TeacherForm
@@ -29,7 +29,7 @@ class StudentCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.save()
-        return redirect('student_detail', pk=form.instance.student.pk)
+        return redirect('student_update', pk=form.instance.student.pk)
 
 
 class StudentDetailView(LoginRequiredMixin, DetailView):
@@ -39,6 +39,11 @@ class StudentDetailView(LoginRequiredMixin, DetailView):
 class StudentUpdateView(LoginRequiredMixin, UpdateView):
     model = Student
     form_class = StudentForm
+    success_url = reverse_lazy('student_list')
+
+
+class StudentDeleteView(DeleteView):
+    model = Student
     success_url = reverse_lazy('student_list')
 
 
@@ -67,3 +72,9 @@ class TeacherDetailView(LoginRequiredMixin, DetailView):
 class TeacherUpdateView(LoginRequiredMixin, UpdateView):
     model = Teacher
     form_class = TeacherForm
+    success_url = reverse_lazy('teacher_list')
+
+
+class TeacherDeleteView(LoginRequiredMixin, DeleteView):
+    model = Teacher
+    success_url = reverse_lazy('teacher_list')

@@ -80,6 +80,17 @@ class Student(models.Model):
     def get_update_url(self):
         return reverse('student_update', args=(self.pk,))
 
+    def get_delete_url(self):
+        return reverse('student_delete', args=(self.pk,))
+
+    def delete(self, using=None, keep_parents=False):
+        """Delete Student object and relatd CustomUser"""
+        try:
+            super().delete()
+            self.user.delete()
+        except self.DoesNotExist:
+            print('Student with id {} does not exist'.format(self.pk))
+
     def __str__(self):
         """String for representing the Model object."""
         return self.first_name + ' ' + self.last_name
@@ -107,6 +118,17 @@ class Teacher(models.Model):
 
     def get_update_url(self):
         return reverse('teacher_update', args=(self.pk,))
+
+    def get_delete_url(self):
+        return reverse('teacher_delete', args=(self.pk,))
+
+    def delete(self, using=None, keep_parents=False):
+        """Delete Teacher object and relatd CustomUser"""
+        try:
+            super().delete()
+            self.user.delete()
+        except self.DoesNotExist:
+            print('Teacher with id {} does not exist'.format(self.pk))
 
     def __str__(self):
         """String for representing the Model object."""

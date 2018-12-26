@@ -1,4 +1,5 @@
 {% extends "dashboard/base.html" %}
+
 {% block title %}Teacher List{% endblock title %}
 
 {% block content %}
@@ -7,30 +8,24 @@
     <thead>
     <tr>
       <td>ID</td>
-      <td>Link</td>
-      <td>First name</td>
-      <td>Last_name</td>
+      <td>First Name</td>
+      <td>Last Name</td>
       <td>Email</td>
       <td>Phone</td>
-      <td>Notes</td>
-      <td>Date of birth</td>
-      <td>Basic course rate</td>
-      <td>Basic individual lesson rate</td>
+      <td></td>
+      <td></td>
     </tr>
     </thead>
     <tbody>
     {% for object in object_list %}
     <tr>
-        <td>{{object.pk}}</td>
-        <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
-        <td>{{ object.first_name }}</td>
-        <td>{{ object.last_name }}</td>
-        <td>{{ object.email }}</td>
-        <td>{{ object.phone }}</td>
-        <td>{{ object.notes }}</td>
-        <td>{{ object.date_of_birth }}</td>
-        <td>{{ object.basic_course_rate }}</td>
-        <td>{{ object.basic_individual_lesson_rate }}</td>
+      <td>{{object.pk}}</td>
+      <td><a href="{{object.get_absolute_url}}">{{ object.first_name }}</a></td>
+      <td>{{ object.last_name }}</td>
+      <td>{{ object.user.email }}</td>
+      <td>{{ object.phone }}</td>
+      <td><a href="{{object.get_update_url}}">Edit</a></td>
+      <td><a href="{{object.get_delete_url}}">Delete</a></td>
     </tr>
     {% endfor %}
     </tbody>
