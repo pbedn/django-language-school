@@ -7,15 +7,15 @@
 <h1 class="title">{% trans "Sign In" %}</h1>
   <p class="content">
   {% url 'signup' as the_url %}
-  {% blocktrans %}If you have not created an account yet, then please <a href="{{ the_url }}">sign up</a>
-    first.{% endblocktrans %}</p>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
   {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
   {% endif %}
-  <a class="button is-link" href="{% url 'password_reset' %}">{% trans "Forgot Password?" %}</a>
   <button class="button is-primary" type="submit">{% trans "Sign In" %}</button>
+  <a class="button is-link" href="{% url 'password_reset' %}">{% trans "Forgot Password?" %}</a>
 </form>
+  {% blocktrans %}If you do not have an account yet, then please ask the site administrator</a>
+    first.{% endblocktrans %}</p>
 {% endblock %}

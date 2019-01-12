@@ -8,10 +8,11 @@ from .forms import CustomUserCreationForm, StudentCreationForm, TeacherCreationF
 from .models import Student, Teacher
 
 
-class SignUpCreateView(CreateView):
-    form_class = CustomUserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
+# signup is disabled as part of business requirement
+# class SignUpCreateView(CreateView):
+#     form_class = CustomUserCreationForm
+#     success_url = reverse_lazy('login')
+#     template_name = 'registration/signup.html'
 
 
 class StudentListView(LoginRequiredMixin, ListView):
