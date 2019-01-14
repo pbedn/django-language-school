@@ -1,11 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'dashboard/base.html' %}
 
 {% block title %}Student delete{% endblock %}
 
 {% block content %}
-<p class="title">Confirm delete of student: {{ object.first_name }}</p>
-<form method="POST">
-  {% csrf_token %}
-  <input class="button is-primary" type="submit" value="Delete">
-</form>
+<div class="col-sm-6">
+  <div class="card">
+    <div class="card-body">
+      <p class="title">Confirm delete of student: {{ object.first_name }}</p>
+      <form method="POST">
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="Delete">
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

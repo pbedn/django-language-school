@@ -2,18 +2,23 @@
 {% block title %}Teacher Detail{% endblock title %}
 
 {% block content %}
-    <div class="nine columns content">
-    <p><a class="btn btn-default" href="{% url 'teacher_list' %}">Teacher Listing</a></p>
-    <table class="table">
-    <tr><td>first_name</td><td>{{ object.first_name }}</td></tr>
-    <tr><td>last_name</td><td>{{ object.last_name }}</td></tr>
-    <tr><td>email</td><td>{{ object.user.email }}</td></tr>
-    <tr><td>phone</td><td>{{ object.phone }}</td></tr>
-    <tr><td>notes</td><td>{{ object.notes }}</td></tr>
-    <tr><td>date_of_birth</td><td>{{ object.date_of_birth }}</td></tr>
-    <tr><td>basic_course_rate</td><td>{{ object.basic_course_rate }}</td></tr>
-    <tr><td>basic_individual_lesson_rate</td><td>{{ object.basic_individual_lesson_rate }}</td></tr>
-    </table>
-    <a class="btn btn-primary" href="{{object.get_update_url}}">Edit Teacher</a>
+<div class="col-sm-6">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">{{ object.first_name }} {{ object.last_name }}</h4>
+
+      <table class="table">
+        <tr><td>first_name</td><td>{{ object.first_name }}</td></tr>
+        <tr><td>last_name</td><td>{{ object.last_name }}</td></tr>
+        <tr><td>email</td><td>{{ object.user.email }}</td></tr>
+        <tr><td>phone</td><td>{{ object.phone }}</td></tr>
+        <tr><td>notes</td><td>{{ object.notes }}</td></tr>
+        <tr><td>date_of_birth</td><td>{{ object.date_of_birth }}</td></tr>
+        <tr><td>basic_course_rate</td><td>{{ object.basic_course_rate }}</td></tr>
+        <tr><td>basic_individual_lesson_rate</td><td>{{ object.basic_individual_lesson_rate }}</td></tr>
+      </table>
+      <a class="btn btn-primary" href="{{object.get_update_url}}">Edit Teacher</a>
     </div>
+  </div>
+</div>
 {% endblock %}

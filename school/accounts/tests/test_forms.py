@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
-from ..forms import CustomUserCreationForm, CustomUserChangeForm
+from ..forms import CustomUserCreationForm
 
 
 class CustomUserCreationFormTestCase(TestCase):
