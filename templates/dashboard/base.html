@@ -1,41 +1,25 @@
 {% extends "base.html" %}
-{% block title %}Language School{% endblock title %}
+{% block title %}DASHBOARD BASE{% endblock title %}
 {% load static %}
 
 {% block stylesheets %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}" />
+  <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+  <link href="{% static 'css/sticky-footer-navbar.css' %}" rel="stylesheet">
 {% endblock %}
 
+{% block body %}
+  {% include 'dashboard/navbar.html' %}
 
-{% block nav_topbar %}
-  <div class="twelve columns header">
-    <div class="u-pull-left">
-      <a href=" {% url 'home' %}">Language School</a>
-    </div>
-    <div class="u-pull-right">
-      <a>Witaj {{user.username }}</a>
-      {% if user.is_authenticated %}
-      <a href="{% url 'logout' %}">Logout</a>
-      {% endif %}
+  <div class="container-fluid">
+    <div class="row">
+      {% include 'dashboard/sidebar.html' %}
+      {% block content %}{% endblock %}
     </div>
   </div>
-{% endblock %}
 
-{% block nav_sidebar %}
-  <div class="two columns sidebar">
-      <ul>
-        <ol><a class="button" href="{% url 'home' %}">Manager</a></ol>
-        <ol><a class="button" href="{% url 'teacher_list' %}">Teachers</a></ol>
-        <ol><a class="button" href="{% url 'student_list' %}">Students</a></ol>
-      </ul>
-  </div>
-{% endblock %}
-
-{% block content %}
-{% endblock %}
-
-{% block footer %}
-  <div class="footer">
-      Language School <a href="http://example.com/">(link)</a>
-  </div>
+  <footer class="footer">
+    <div class="container text-center">
+      <a href="https://example.com">Language School</a>
+    </div>
+  </footer>
 {% endblock %}

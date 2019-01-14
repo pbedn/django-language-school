@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 ]
 
 PROJECT_APPS = [
-    'school.accounts'
+    'school.accounts',
+    'school.dashboard',
 ]
 
 INSTALLED_APPS += PROJECT_APPS
@@ -132,8 +134,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = PROJECT_DIR / 'media'
-STATIC_ROOT = PROJECT_DIR / 'static_root'
 STATICFILES_DIRS = [PROJECT_DIR / 'static']
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
