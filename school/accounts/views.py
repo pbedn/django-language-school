@@ -4,15 +4,8 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.shortcuts import redirect
 
-from .forms import CustomUserCreationForm, StudentCreationForm, TeacherCreationForm, StudentForm, TeacherForm
+from .forms import StudentCreationForm, TeacherCreationForm, StudentForm, TeacherForm
 from .models import Student, Teacher
-
-
-# signup is disabled as part of business requirement
-# class SignUpCreateView(CreateView):
-#     form_class = CustomUserCreationForm
-#     success_url = reverse_lazy('login')
-#     template_name = 'registration/signup.html'
 
 
 class StudentListView(LoginRequiredMixin, ListView):
