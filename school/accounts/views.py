@@ -40,10 +40,26 @@ class StudentDetailView(LoginRequiredMixin, DetailView):
     model = Student
 
 
-class StudentUpdateView(LoginRequiredMixin, UpdateView):
-    model = Student
-    form_class = StudentForm
+class StudentUpdateView(LoginRequiredMixin, View):
+    user_form_class = StudentCreationForm
+    student_form_class = StudentForm
+    template_name = 'accounts/student_form.html'
     success_url = reverse_lazy('student_list')
+
+    def get(self, request, pk, *args, **kwargs):
+        try:
+            student_instance = Student.objects.get(pk=pk)
+        except Student.DoesNotExist as e:
+            print('Teacher with id: {} does not exists'.format(pk))
+            raise e
+        user_instance = get_user_model().objects.get(pk=student_instance.user.pk)
+        user_form = self.user_form_class(instance=user_instance)
+        student_form = self.student_form_class(instance=student_instance)
+        return render(request, self.template_name, {'user_form': user_form,
+                                                    'student_form': student_form})
+
+    def post(self, request, *args, **kwargs):
+        pass
 
 
 class StudentDeleteView(DeleteView):
@@ -83,10 +99,26 @@ class TeacherDetailView(LoginRequiredMixin, DetailView):
     model = Teacher
 
 
-class TeacherUpdateView(LoginRequiredMixin, UpdateView):
-    model = Teacher
-    form_class = TeacherForm
+class TeacherUpdateView(LoginRequiredMixin, View):
+    user_form_class = TeacherCreationForm
+    teacher_form_class = TeacherForm
+    template_name = 'accounts/teacher_form.html'
     success_url = reverse_lazy('teacher_list')
+
+    def get(self, request, pk, *args, **kwargs):
+        try:
+            teacher_instance = Teacher.objects.get(pk=pk)
+        except Teacher.DoesNotExist as e:
+            print('Teacher with id: {} does not exists'.format(pk))
+            raise e
+        user_instance = get_user_model().objects.get(pk=teacher_instance.user.pk)
+        user_form = self.user_form_class(instance=user_instance)
+        teacher_form = self.teacher_form_class(instance=teacher_instance)
+        return render(request, self.template_name, {'user_form': user_form,
+                                                    'teacher_form': teacher_form})
+
+    def post(self, request, *args, **kwargs):
+        pass
 
 
 class TeacherDeleteView(LoginRequiredMixin, DeleteView):
