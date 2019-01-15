@@ -30,7 +30,6 @@ class StudentCreationForm(ModelForm):
         password = CustomUser.objects.make_random_password()
         user.set_password(password)
         user.save()
-        Student.objects.create(user=user)
 
 
 class StudentForm(ModelForm):
@@ -53,7 +52,6 @@ class TeacherCreationForm(ModelForm):
         password = CustomUser.objects.make_random_password()
         user.set_password(password)
         user.save()
-        Teacher.objects.create(user=user)
 
 
 class TeacherForm(ModelForm):

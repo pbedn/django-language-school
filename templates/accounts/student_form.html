@@ -8,12 +8,16 @@
 <div class="col-sm-6">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Edit Student</h4></a>
+      <h4 class="card-title">Edit Student</h4>
       <form method="post">
         {% csrf_token %}
-        {{ form|crispy }}
+        {{ user_form|crispy }}
+        {{ student_form|crispy }}
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
+    </div>
+    <div class="card-footer text-muted text-center">
+    * Required fields
     </div>
   </div>
 </div>
