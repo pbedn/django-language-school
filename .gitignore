@@ -10,6 +10,7 @@ htmlcov/
 coverage.xml
 *.cover
 .pytest_cache/
+test-reports/
 
 # Translations
 *.mo
