@@ -42,9 +42,9 @@ should be read from .env file created manually.
 Stack: Django 2.1, Python 3.6. 
 
 ### Frontend
-Frontend is as simple as it can be, just for demo purpouses, and not for production.
+Frontend is as simple as it can be, just for demo purposes, and not for production.
 
-Stack: Django Templates, Skeleton CSS framework.
+Stack: Django Templates, Bootstrap 4.
 
 ### Deployment
 Connected with CircleCI for continuous integration
