@@ -1,7 +1,7 @@
 # django-language-school
 
 [![CircleCI](https://circleci.com/gh/pbedn/django-language-school.svg?style=svg)](https://circleci.com/gh/pbedn/django-language-school)
-
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 Application for language school management
 
