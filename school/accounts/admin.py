@@ -4,6 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from. models import CustomUser, Student, Teacher
 
 
+@admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
     """Define admin model for custom User model with no email field."""
 
@@ -25,18 +26,11 @@ class CustomUserAdmin(UserAdmin):
     ordering = ('email',)
 
 
-admin.site.register(CustomUser, CustomUserAdmin)
-
-
+@admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Student, StudentAdmin)
-
-
+@admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
     pass
-
-
-admin.site.register(Teacher, TeacherAdmin)
