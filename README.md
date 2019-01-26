@@ -12,6 +12,7 @@ Application for language school management
 Install poetry globally (recommended)
 ```
 curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+echo 'export PATH="$HOME/.poetry/bin:$PATH"' >> ~/.bashrc
 ```
 
 Create virtual environment manually (recommended)
