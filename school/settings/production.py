@@ -12,3 +12,7 @@ DATABASES = {
         'PORT': get_env_variable('DJANGO_DB_PORT'),
     }
 }
+
+ALLOWED_HOSTS = [get_env_variable('SERVER_DOMAIN'),
+                 get_env_variable('SERVER_IP'),
+                 'localhost']
