@@ -56,14 +56,18 @@ jobs:
   deploy:
     machine:
       enabled: true
+
+    working_directory: ~/repo
+    
     steps:
+      - checkout
       - add_ssh_keys:
           fingerprints:
             - $SSH_FINGERPRINT
       - run:
           name: deploy over ssh
           command: |
-            ssh $SSH_USER@$SSH_HOST "git -C $PROJECT_DIR fetch --all && git checkout --force origin/master"
+            bash deploy.sh
 
 workflows:
   version: 2
