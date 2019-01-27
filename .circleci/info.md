@@ -9,6 +9,7 @@ Set variables:
     SERVER_REPO_PATH <path-to-repo>
     SERVER_VENV_ACTIVATE_PATH <path-to-venv-activate>
     SSH_FINGERPRINT <rsa-fingerprint>
+    CODECOV_TOKEN your-codecov-token
 
 #### *PERMISSIONS / checkout SSH keys*
 
