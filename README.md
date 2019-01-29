@@ -6,7 +6,9 @@
 
 Application for language school management
 
----
+Docs written with sphinx and hosted at readthedocs: [language-school.readthedocs.io](http://language-school.readthedocs.io/)
+
+
 
 ## Setup
 
