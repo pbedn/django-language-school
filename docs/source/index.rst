@@ -12,6 +12,7 @@ Welcome to language-school's documentation!
 
    introduction
    architecture
+   settings
 
 
 

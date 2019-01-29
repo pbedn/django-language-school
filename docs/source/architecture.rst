@@ -2,6 +2,11 @@ Architecture choices
 ************************
 Notes on technology choices.
 
+Hosting
+=========
+I have a staging environment setup on digital ocean Ubuntu 18.04 server.
+More notes are in my blog post `LINK <https://pbedn.github.io/post/2019-best-django-hosting/>`_
+
 Backend framework
 ===================
 Django
