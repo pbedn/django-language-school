@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "django-language-school"
+name = "language-school"
 version = "0.1.0"
 description = "Language School Management"
 authors = ["Paweł Bednarz <pbedn@users.noreply.github.com>"]
@@ -14,6 +14,8 @@ factory-boy = "^2.11"
 gunicorn = "^19.9"
 psycopg2-binary = "^2.7"
 sentry_sdk = "^0.6.9"
+sphinx = "^1.8"
+sphinx_rtd_theme = "^0.4.2"
 
 [tool.poetry.dev-dependencies]
 django-extensions = "^2.1"
