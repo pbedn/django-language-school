@@ -1,7 +1,7 @@
-# django-language-school
+# language-school
 
-[![CircleCI](https://circleci.com/gh/pbedn/django-language-school/tree/master.svg?style=shield)](https://circleci.com/gh/pbedn/django-language-school/tree/master)
-[![codecov](https://codecov.io/gh/pbedn/django-language-school/branch/master/graph/badge.svg)](https://codecov.io/gh/pbedn/django-language-school)
+[![CircleCI](https://circleci.com/gh/pbedn/language-school/tree/master.svg?style=shield)](https://circleci.com/gh/pbedn/django-language-school/tree/master)
+[![codecov](https://codecov.io/gh/pbedn/language-school/branch/master/graph/badge.svg)](https://codecov.io/gh/pbedn/django-language-school)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 Application for language school management
