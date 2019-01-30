@@ -2,26 +2,41 @@ Architecture choices
 ************************
 Notes on technology choices.
 
+Language School is a simple CRUD application with PostgreSQL database.
+
 Hosting
 =========
+It will be mainly used by language school administration office, therefore
+it is enough to host it on single server with few workers as it has limited number of users.
+Therefore is no need for load balanceer or separate servers for db, static files etc.
+
 I have a staging environment setup on digital ocean Ubuntu 18.04 server.
 More notes are in my blog post `LINK <https://pbedn.github.io/post/2019-best-django-hosting/>`_
 
 Backend framework
 ===================
-Django
+Django vs Flask: for typical CRUD application Django as a batteries included
+framework wins easily.
 
-Frontend framework
+CSS framework
 ===================
-Bootstrap 4
+Bootstrap 4 vs Bulma: First tried Bulma as it looks cleaner and more fresh,
+but with better community and tutorials old school css framework wins.
+
+And why not separate frontend application in React or Vue.js. Well there is no need
+as django templates work fine for my simple case. Response from server is very fast
+so for user experience it is most important.
 
 Continuous Integration
 =======================
-CircleCI
+I have previous experience with CircleCI service. They use yaml configuration files
+and provide service for free in open source projects. I can create workflows
+to test, send results to other services for example Codecov (code coverage) and deploy.
 
 Continuous Delivery
 ===================
-CircleCI with bash script
+Currently I am using CircleCI workflow that activates bash script. But I recognize this solution
+as temporary, and in future will use Ansible configuration tool for provisioning and deploy.
 
 Email server
 ===================
