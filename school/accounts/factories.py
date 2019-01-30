@@ -13,7 +13,7 @@ class UserFactory(DjangoModelFactory):
         model = get_user_model()
 
     email = faker.email()
-    password = 'pass'
+    password = "pass"
 
 
 class StudentFactory(DjangoModelFactory):

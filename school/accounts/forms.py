@@ -5,23 +5,21 @@ from .models import CustomUser, Student, Teacher
 
 
 class CustomUserCreationForm(UserCreationForm):
-
     class Meta:
         model = CustomUser
-        fields = ('email', )
+        fields = ("email",)
 
 
 class CustomUserChangeForm(UserChangeForm):
-
     class Meta:
         model = CustomUser
-        fields = ('email', 'display_name')
+        fields = ("email", "display_name")
 
 
 class StudentCreationForm(ModelForm):
     class Meta:
         model = CustomUser
-        fields = ('email', )
+        fields = ("email",)
 
     @transaction.atomic
     def save(self):
@@ -35,15 +33,22 @@ class StudentCreationForm(ModelForm):
 class StudentForm(ModelForm):
     class Meta:
         model = Student
-        fields = ['first_name', 'last_name', 'phone',
-                  'general_discount', 'date_of_birth',
-                  'company_name', 'company_address', 'company_tax_number']
+        fields = [
+            "first_name",
+            "last_name",
+            "phone",
+            "general_discount",
+            "date_of_birth",
+            "company_name",
+            "company_address",
+            "company_tax_number",
+        ]
 
 
 class TeacherCreationForm(ModelForm):
     class Meta:
         model = CustomUser
-        fields = ('email', )
+        fields = ("email",)
 
     @transaction.atomic
     def save(self):
@@ -57,6 +62,12 @@ class TeacherCreationForm(ModelForm):
 class TeacherForm(ModelForm):
     class Meta:
         model = Teacher
-        fields = ['first_name', 'last_name', 'phone',
-                  'notes', 'date_of_birth',
-                  'basic_course_rate', 'basic_individual_lesson_rate']
+        fields = [
+            "first_name",
+            "last_name",
+            "phone",
+            "notes",
+            "date_of_birth",
+            "basic_course_rate",
+            "basic_individual_lesson_rate",
+        ]
