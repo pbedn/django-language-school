@@ -38,7 +38,7 @@ class UserManager(BaseUserManager):
 
 
 class CustomUser(AbstractUser):
-    """User model."""
+    """Represents custom user"""
 
     username = None
     first_name = None
@@ -55,6 +55,8 @@ class CustomUser(AbstractUser):
 
 
 class Student(models.Model):
+    """This model represents single student"""
+
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
 
     first_name = models.CharField(blank=False, null=False, max_length=20)
@@ -97,6 +99,8 @@ class Student(models.Model):
 
 
 class Teacher(models.Model):
+    """Represents single teacher"""
+
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
 
     first_name = models.CharField(blank=False, null=False, max_length=20)
