@@ -1,7 +1,9 @@
 {% extends "dashboard/base.html" %}
+
 {% block title %}Student Detail{% endblock title %}
 
 {% block content %}
+
 <div class="col-sm-6">
   <div class="card">
     <div class="card-body">
@@ -18,8 +20,10 @@
         <tr><td>company_address</td><td>{{ object.company_address }}</td></tr>
         <tr><td>company_tax_number</td><td>{{ object.company_tax_number }}</td></tr>
       </table>
+
       <a class="btn btn-primary" href="{{object.get_update_url}}">Edit Student</a>
       </div>
   </div>
 </div>
+
 {% endblock %}
