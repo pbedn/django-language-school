@@ -28,12 +28,13 @@ class StudentCreationForm(ModelForm):
         password = CustomUser.objects.make_random_password()
         user.set_password(password)
         user.save()
+        return user
 
 
 class StudentForm(ModelForm):
     class Meta:
         model = Student
-        fields = [
+        fields = (
             "first_name",
             "last_name",
             "phone",
@@ -42,7 +43,7 @@ class StudentForm(ModelForm):
             "company_name",
             "company_address",
             "company_tax_number",
-        ]
+        )
 
 
 class TeacherCreationForm(ModelForm):
@@ -57,12 +58,13 @@ class TeacherCreationForm(ModelForm):
         password = CustomUser.objects.make_random_password()
         user.set_password(password)
         user.save()
+        return user
 
 
 class TeacherForm(ModelForm):
     class Meta:
         model = Teacher
-        fields = [
+        fields = (
             "first_name",
             "last_name",
             "phone",
@@ -70,4 +72,4 @@ class TeacherForm(ModelForm):
             "date_of_birth",
             "basic_course_rate",
             "basic_individual_lesson_rate",
-        ]
+        )

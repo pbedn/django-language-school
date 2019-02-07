@@ -86,12 +86,9 @@ class Student(models.Model):
         return reverse("student_delete", args=(self.pk,))
 
     def delete(self, using=None, keep_parents=False):
-        """Delete Student object and relatd CustomUser"""
-        try:
-            super().delete()
-            self.user.delete()
-        except self.DoesNotExist:
-            print("Student with id {} does not exist".format(self.pk))
+        """Delete Student object and related CustomUser"""
+        super().delete()
+        self.user.delete()
 
     def __str__(self):
         """String for representing the Model object."""
@@ -131,12 +128,9 @@ class Teacher(models.Model):
         return reverse("teacher_delete", args=(self.pk,))
 
     def delete(self, using=None, keep_parents=False):
-        """Delete Teacher object and relatd CustomUser"""
-        try:
-            super().delete()
-            self.user.delete()
-        except self.DoesNotExist:
-            print("Teacher with id {} does not exist".format(self.pk))
+        """Delete Teacher object and related CustomUser"""
+        super().delete()
+        self.user.delete()
 
     def __str__(self):
         """String for representing the Model object."""
