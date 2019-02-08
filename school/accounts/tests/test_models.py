@@ -16,37 +16,37 @@ class CustomUserModelTest(TestCase):
     def test_user_is_created(self):
         user = get_user_model().objects.first()
         self.assertEqual(user.email, "user0@example.com")
-        self.assertEqual(user.password, 'pass')
+        self.assertEqual(user.password, "pass")
 
     def test_create_user(self):
-        user = CustomUser.objects.create_user(email='test@example.com',
-                                              password='pass')
-        self.assertEqual(user.email, 'test@example.com')
-        self.assertTrue(user.check_password('pass'))
+        user = CustomUser.objects.create_user(email="test@example.com", password="pass")
+        self.assertEqual(user.email, "test@example.com")
+        self.assertTrue(user.check_password("pass"))
         self.assertEqual(user.is_staff, False)
         self.assertEqual(user.is_superuser, False)
 
     def test_create_superuser(self):
-        user = CustomUser.objects.create_superuser(email='test@example.com',
-                                              password='pass')
-        self.assertEqual(user.email, 'test@example.com')
-        self.assertTrue(user.check_password('pass'))
+        user = CustomUser.objects.create_superuser(
+            email="test@example.com", password="pass"
+        )
+        self.assertEqual(user.email, "test@example.com")
+        self.assertTrue(user.check_password("pass"))
         self.assertEqual(user.is_staff, True)
         self.assertEqual(user.is_superuser, True)
 
     def test_create_user_with_empty_email(self):
         with self.assertRaises(ValueError):
-            CustomUser.objects.create_user(email='')
+            CustomUser.objects.create_user(email="")
 
     def test_create_superuser_with_wrong_fields(self):
         with self.assertRaises(ValueError):
-            CustomUser.objects.create_superuser(email='test@example.com',
-                                                password='pass',
-                                                is_staff=False)
+            CustomUser.objects.create_superuser(
+                email="test@example.com", password="pass", is_staff=False
+            )
         with self.assertRaises(ValueError):
-            CustomUser.objects.create_superuser(email='test@example.com',
-                                                password='pass',
-                                                is_superuser=False)
+            CustomUser.objects.create_superuser(
+                email="test@example.com", password="pass", is_superuser=False
+            )
 
     def tearDown(self):
         UserFactory.reset_sequence()
@@ -64,7 +64,7 @@ class StudentModelTest(TestCase):
     def test_student_is_created(self):
         student = Student.objects.first()
         self.assertEqual(student.user.email, "user0@example.com")
-        self.assertEqual(student.user.password, 'pass')
+        self.assertEqual(student.user.password, "pass")
         self.assertEqual(student.first_name, "Student0")
         self.assertEqual(student.last_name, "LastName")
         object_display = student.first_name + " " + student.last_name
@@ -102,7 +102,7 @@ class TeacherModelTest(TestCase):
     def test_teacher_is_created(self):
         teacher = Teacher.objects.first()
         self.assertEqual(teacher.user.email, "user0@example.com")
-        self.assertEqual(teacher.user.password, 'pass')
+        self.assertEqual(teacher.user.password, "pass")
         self.assertEqual(teacher.first_name, "Teacher0")
         self.assertEqual(teacher.last_name, "LastName")
         object_display = teacher.first_name + " " + teacher.last_name

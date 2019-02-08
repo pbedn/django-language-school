@@ -132,7 +132,7 @@ class TeacherUpdateView(LoginRequiredMixin, View):
     user_form_class = TeacherCreationForm
     teacher_form_class = TeacherForm
     template_name = "accounts/teacher_form.html"
-    success_url = reverse_lazy('teacher_list')
+    success_url = reverse_lazy("teacher_list")
 
     def get(self, request, pk, *args, **kwargs):
         teacher_instance = get_object_or_404(Teacher, pk=pk)

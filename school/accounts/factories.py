@@ -12,7 +12,7 @@ class UserFactory(DjangoModelFactory):
     class Meta:
         model = get_user_model()
 
-    email = factory.Sequence(lambda n: 'user{0}@example.com'.format(n))
+    email = factory.Sequence(lambda n: "user{0}@example.com".format(n))
     password = "pass"
 
 
@@ -21,8 +21,8 @@ class StudentFactory(DjangoModelFactory):
         model = Student
 
     user = factory.SubFactory(UserFactory)
-    first_name = factory.Sequence(lambda n: 'Student{0}'.format(n))
-    last_name = 'LastName'
+    first_name = factory.Sequence(lambda n: "Student{0}".format(n))
+    last_name = "LastName"
 
 
 class TeacherFactory(DjangoModelFactory):
@@ -30,6 +30,6 @@ class TeacherFactory(DjangoModelFactory):
         model = Teacher
 
     user = factory.SubFactory(UserFactory)
-    first_name = factory.Sequence(lambda n: 'Teacher{0}'.format(n))
-    last_name = 'LastName'
+    first_name = factory.Sequence(lambda n: "Teacher{0}".format(n))
+    last_name = "LastName"
     phone = faker.phone_number()

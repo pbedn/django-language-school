@@ -46,7 +46,7 @@ class StudentCreateViewTest(TestCase):
         self.assertEqual(reverse("student_create"), "/accounts/student/create/")
 
     def test_get(self):
-        response = self.client.get(reverse('student_create'))
+        response = self.client.get(reverse("student_create"))
         self.assertEqual(response.status_code, 200)
 
     def test_post_when_form_is_valid(self):
@@ -54,21 +54,23 @@ class StudentCreateViewTest(TestCase):
         self.assertEqual(student_count, 1)
         url = reverse("student_create")
         data = {
-                "email": "first@example.com",
-                "first_name": "FirstName",
-                "last_name": "LastName",
-                "phone": "",
-                "general_discount": "",
-                "date_of_birth": "",
-                "company_name": "",
-                "company_address": "",
-                "company_tax_number": "",
+            "email": "first@example.com",
+            "first_name": "FirstName",
+            "last_name": "LastName",
+            "phone": "",
+            "general_discount": "",
+            "date_of_birth": "",
+            "company_name": "",
+            "company_address": "",
+            "company_tax_number": "",
         }
         response = self.client.post(url, data=data, follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.context_data['student'].user.email, data['email'])
-        self.assertEqual(response.context_data['student'].first_name, data['first_name'])
-        self.assertEqual(response.context_data['student'].last_name, data['last_name'])
+        self.assertEqual(response.context_data["student"].user.email, data["email"])
+        self.assertEqual(
+            response.context_data["student"].first_name, data["first_name"]
+        )
+        self.assertEqual(response.context_data["student"].last_name, data["last_name"])
         student_count = Student.objects.count()
         self.assertEqual(student_count, 2)
 
@@ -76,10 +78,7 @@ class StudentCreateViewTest(TestCase):
         student_count = Student.objects.count()
         self.assertEqual(student_count, 1)
         url = reverse("student_create")
-        data = {
-                "email": "test@example.com",
-                "first_name": "Student",
-        }
+        data = {"email": "test@example.com", "first_name": "Student"}
         response = self.client.post(url, data=data)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(student_count, 1)
@@ -155,13 +154,13 @@ class StudentUpdateViewTest(TestCase):
         response = self.client.post(url, data=data, follow=True)
         student = Student.objects.get(pk=self.student.pk)
         self.assertEqual(response.status_code, 200)
-        self.assertRedirects(response, reverse('student_list'))
-        self.assertContains(response, text=data['email'])
-        self.assertContains(response, text=data['first_name'])
-        self.assertContains(response, text=data['last_name'])
-        self.assertEqual(student.user.email, data['email'])
-        self.assertEqual(student.first_name, data['first_name'])
-        self.assertEqual(student.last_name, data['last_name'])
+        self.assertRedirects(response, reverse("student_list"))
+        self.assertContains(response, text=data["email"])
+        self.assertContains(response, text=data["first_name"])
+        self.assertContains(response, text=data["last_name"])
+        self.assertEqual(student.user.email, data["email"])
+        self.assertEqual(student.first_name, data["first_name"])
+        self.assertEqual(student.last_name, data["last_name"])
 
     def test_post_with_form_invalid(self):
         """Test if Student object was not changed and return error on email field"""
@@ -174,7 +173,7 @@ class StudentUpdateViewTest(TestCase):
         response = self.client.post(url, data=data, follow=True)
         student = Student.objects.get(pk=self.student.pk)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, text='Enter a valid email address.')
+        self.assertContains(response, text="Enter a valid email address.")
         self.assertEqual(self.student.user.email, student.user.email)
         self.assertEqual(self.student.first_name, student.first_name)
         self.assertEqual(self.student.last_name, student.last_name)
@@ -202,7 +201,7 @@ class StudentDeleteViewTest(TestCase):
     def test_url_redirects_correctly(self):
         url = reverse("student_delete", args=[self.student.pk])
         response = self.client.post(url, follow=True)
-        self.assertRedirects(response, reverse('student_list'))
+        self.assertRedirects(response, reverse("student_list"))
 
     def test_student_has_been_deleted(self):
         student_count = Student.objects.count()
@@ -254,7 +253,7 @@ class TeacherCreateViewTest(TestCase):
         self.assertEqual(reverse("teacher_create"), "/accounts/teacher/create/")
 
     def test_get(self):
-        response = self.client.get(reverse('teacher_create'))
+        response = self.client.get(reverse("teacher_create"))
         self.assertEqual(response.status_code, 200)
 
     def test_post_when_form_is_valid(self):
@@ -262,20 +261,22 @@ class TeacherCreateViewTest(TestCase):
         self.assertEqual(teacher_count, 1)
         url = reverse("teacher_create")
         data = {
-                "email": "test@example.com",
-                "first_name": "FirstName",
-                "last_name": "LastName",
-                "phone": "12345",
-                "notes": "",
-                "date_of_birth": "",
-                "basic_course_rate": "",
-                "basic_individual_lesson_rate": "",
+            "email": "test@example.com",
+            "first_name": "FirstName",
+            "last_name": "LastName",
+            "phone": "12345",
+            "notes": "",
+            "date_of_birth": "",
+            "basic_course_rate": "",
+            "basic_individual_lesson_rate": "",
         }
         response = self.client.post(url, data=data, follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.context_data['teacher'].user.email, data['email'])
-        self.assertEqual(response.context_data['teacher'].first_name, data['first_name'])
-        self.assertEqual(response.context_data['teacher'].last_name, data['last_name'])
+        self.assertEqual(response.context_data["teacher"].user.email, data["email"])
+        self.assertEqual(
+            response.context_data["teacher"].first_name, data["first_name"]
+        )
+        self.assertEqual(response.context_data["teacher"].last_name, data["last_name"])
         teacher_count = Teacher.objects.count()
         self.assertEqual(teacher_count, 2)
 
@@ -284,9 +285,9 @@ class TeacherCreateViewTest(TestCase):
         self.assertEqual(teacher_count, 1)
         url = reverse("teacher_create")
         data = {
-                "email": "test@example.com",
-                "first_name": "FirstName",
-                "last_name": "LastName",
+            "email": "test@example.com",
+            "first_name": "FirstName",
+            "last_name": "LastName",
         }
         response = self.client.post(url, data=data)
         self.assertEqual(response.status_code, 200)
@@ -350,27 +351,27 @@ class TeacherUpdateViewTest(TestCase):
         """Test that Teacher object has been updated"""
         url = reverse("teacher_update", args=[self.teacher.pk])
         data = {
-                "email": "second@example.com",
-                "first_name": "FirstNameUpdated",
-                "last_name": "LastNameUpdated",
-                "phone": "123450000",
-                "notes": "",
-                "date_of_birth": "",
-                "basic_course_rate": "",
-                "basic_individual_lesson_rate": "",
+            "email": "second@example.com",
+            "first_name": "FirstNameUpdated",
+            "last_name": "LastNameUpdated",
+            "phone": "123450000",
+            "notes": "",
+            "date_of_birth": "",
+            "basic_course_rate": "",
+            "basic_individual_lesson_rate": "",
         }
         response = self.client.post(url, data=data, follow=True)
         teacher = Teacher.objects.get(pk=self.teacher.pk)
         self.assertEqual(response.status_code, 200)
-        self.assertRedirects(response, reverse('teacher_list'))
-        self.assertContains(response, text=data['email'])
-        self.assertContains(response, text=data['first_name'])
-        self.assertContains(response, text=data['last_name'])
-        self.assertContains(response, text=data['phone'])
-        self.assertEqual(teacher.user.email, data['email'])
-        self.assertEqual(teacher.first_name, data['first_name'])
-        self.assertEqual(teacher.last_name, data['last_name'])
-        self.assertEqual(teacher.phone, data['phone'])
+        self.assertRedirects(response, reverse("teacher_list"))
+        self.assertContains(response, text=data["email"])
+        self.assertContains(response, text=data["first_name"])
+        self.assertContains(response, text=data["last_name"])
+        self.assertContains(response, text=data["phone"])
+        self.assertEqual(teacher.user.email, data["email"])
+        self.assertEqual(teacher.first_name, data["first_name"])
+        self.assertEqual(teacher.last_name, data["last_name"])
+        self.assertEqual(teacher.phone, data["phone"])
 
     def test_post_with_form_invalid(self):
         """Test if Teacher object was not changed and return error on email field"""
@@ -384,7 +385,7 @@ class TeacherUpdateViewTest(TestCase):
         response = self.client.post(url, data=data, follow=True)
         teacher = Teacher.objects.get(pk=self.teacher.pk)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, text='Enter a valid email address.')
+        self.assertContains(response, text="Enter a valid email address.")
         self.assertEqual(self.teacher.user.email, teacher.user.email)
         self.assertEqual(self.teacher.first_name, teacher.first_name)
         self.assertEqual(self.teacher.last_name, teacher.last_name)
@@ -413,7 +414,7 @@ class TeacherDeleteViewTest(TestCase):
     def test_url_redirects_correctly(self):
         url = reverse("teacher_delete", args=[self.teacher.pk])
         response = self.client.post(url, follow=True)
-        self.assertRedirects(response, reverse('teacher_list'))
+        self.assertRedirects(response, reverse("teacher_list"))
 
     def test_teacher_has_been_deleted(self):
         teacher_count = Teacher.objects.count()

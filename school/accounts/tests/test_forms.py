@@ -4,7 +4,13 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.utils.timezone import datetime
 
-from ..forms import CustomUserCreationForm, StudentCreationForm, TeacherCreationForm, StudentForm, TeacherForm
+from ..forms import (
+    CustomUserCreationForm,
+    StudentCreationForm,
+    TeacherCreationForm,
+    StudentForm,
+    TeacherForm,
+)
 
 
 class CustomUserCreationFormTest(TestCase):
@@ -38,11 +44,7 @@ class StudentCreationFormTest(TestCase):
     """
 
     def test_student_is_created(self):
-        form = StudentCreationForm(
-            {
-                "email": "test@example.com",
-            }
-        )
+        form = StudentCreationForm({"email": "test@example.com"})
         self.assertTrue(form.is_valid())
         student_form = form.save()
         self.assertEqual(student_form.email, "test@example.com")
@@ -58,11 +60,7 @@ class TeacherCreationFormTest(TestCase):
     """
 
     def test_teacher_is_created(self):
-        form = TeacherCreationForm(
-            {
-                "email": "test@example.com",
-            }
-        )
+        form = TeacherCreationForm({"email": "test@example.com"})
         self.assertTrue(form.is_valid())
         teacher_form = form.save()
         self.assertEqual(teacher_form.email, "test@example.com")
@@ -92,16 +90,11 @@ class StudentFormTest(TestCase):
             }
         )
         self.assertTrue(form.is_valid())
-        self.assertEqual(form.cleaned_data['first_name'], "Student")
-        self.assertEqual(form.cleaned_data['last_name'], "LastName")
+        self.assertEqual(form.cleaned_data["first_name"], "Student")
+        self.assertEqual(form.cleaned_data["last_name"], "LastName")
 
     def test_student_form_is_invalid(self):
-        form = StudentForm(
-            {
-                "email": "test@example.com",
-                "first_name": "Student",
-            }
-        )
+        form = StudentForm({"email": "test@example.com", "first_name": "Student"})
         self.assertFalse(form.is_valid())
 
 
@@ -124,16 +117,12 @@ class TeacherFormTest(TestCase):
             }
         )
         self.assertTrue(form.is_valid())
-        self.assertEqual(form.cleaned_data['first_name'], "Teacher")
-        self.assertEqual(form.cleaned_data['last_name'], "LastName")
-        self.assertEqual(form.cleaned_data['phone'], "12345")
+        self.assertEqual(form.cleaned_data["first_name"], "Teacher")
+        self.assertEqual(form.cleaned_data["last_name"], "LastName")
+        self.assertEqual(form.cleaned_data["phone"], "12345")
 
     def test_teacher_form_is_invalid(self):
         form = TeacherForm(
-            {
-                "email": "test@example",
-                "first_name": "Teacher",
-                "last_name": "LastName",
-            }
+            {"email": "test@example", "first_name": "Teacher", "last_name": "LastName"}
         )
         self.assertFalse(form.is_valid())
