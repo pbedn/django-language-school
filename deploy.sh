@@ -13,9 +13,6 @@ echo "3. Updating requirements"
 poetry install
 echo "4. Migrating database"
 ./manage.py migrate
-echo "5. Restarting nginx and gunicorn servers"
-sudo systemctl restart gunicorn
-sudo systemctl restart nginx
 echo "Done!"
 
 EOF
