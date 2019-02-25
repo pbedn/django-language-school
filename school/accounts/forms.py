@@ -1,6 +1,8 @@
+from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.db import transaction
+
 from .models import CustomUser, Student, Teacher
 
 
@@ -32,6 +34,9 @@ class StudentCreationForm(ModelForm):
 
 
 class StudentForm(ModelForm):
+    phone = forms.CharField(min_length=9, max_length=9)
+    company_tax_number = forms.CharField(min_length=10)
+
     class Meta:
         model = Student
         fields = (
@@ -44,6 +49,13 @@ class StudentForm(ModelForm):
             "company_address",
             "company_tax_number",
         )
+        widgets = {
+            "phone": forms.NumberInput(),
+            "date_of_birth": forms.DateInput(
+                attrs={'type': 'date'}
+            ),
+            "company_tax_number": forms.NumberInput(),
+        }
 
 
 class TeacherCreationForm(ModelForm):
@@ -62,6 +74,8 @@ class TeacherCreationForm(ModelForm):
 
 
 class TeacherForm(ModelForm):
+    phone = forms.CharField(min_length=9, max_length=9)
+
     class Meta:
         model = Teacher
         fields = (
@@ -73,3 +87,9 @@ class TeacherForm(ModelForm):
             "basic_course_rate",
             "basic_individual_lesson_rate",
         )
+        widgets = {
+            "phone": forms.NumberInput(),
+            "date_of_birth": forms.DateInput(
+                attrs={'type': 'date'}
+            ),
+        }

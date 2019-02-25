@@ -57,12 +57,12 @@ class StudentCreateViewTest(TestCase):
             "email": "first@example.com",
             "first_name": "FirstName",
             "last_name": "LastName",
-            "phone": "",
+            "phone": "123456789",
             "general_discount": "",
             "date_of_birth": "",
             "company_name": "",
             "company_address": "",
-            "company_tax_number": "",
+            "company_tax_number": "123-456789-5",
         }
         response = self.client.post(url, data=data, follow=True)
         self.assertEqual(response.status_code, 200)
@@ -144,12 +144,12 @@ class StudentUpdateViewTest(TestCase):
             "email": "second@example.com",
             "first_name": "FirstNameUpdated",
             "last_name": "LastNameUpdated",
-            "phone": "",
+            "phone": "123456789",
             "general_discount": "",
             "date_of_birth": "",
             "company_name": "",
             "company_address": "",
-            "company_tax_number": "",
+            "company_tax_number": "123-456789-5",
         }
         response = self.client.post(url, data=data, follow=True)
         student = Student.objects.get(pk=self.student.pk)
@@ -264,7 +264,7 @@ class TeacherCreateViewTest(TestCase):
             "email": "test@example.com",
             "first_name": "FirstName",
             "last_name": "LastName",
-            "phone": "12345",
+            "phone": "123456789",
             "notes": "",
             "date_of_birth": "",
             "basic_course_rate": "",
