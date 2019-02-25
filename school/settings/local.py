@@ -21,3 +21,5 @@ DATABASES = {
         "NAME": str(PROJECT_DIR / "school.db"),
     }
 }
+
+CRISPY_FAIL_SILENTLY = not DEBUG
