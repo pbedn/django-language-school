@@ -1,0 +1,23 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Course Detail{% endblock title %}
+
+{% block content %}
+
+<div class="col-sm-6">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">{{ object.first_name }} {{ object.last_name }}</h4>
+
+      <table class="table">
+        <tr><td>name</td><td>{{ object.name }}</td></tr>
+        <tr><td>type</td><td>{{ object.type }}</td></tr>
+        <tr><td>number_of_lessons</td><td>{{ object.number_of_lessons }}</td></tr>
+      </table>
+
+      <a class="btn btn-primary" href="{{object.get_update_url}}">Edit Course</a>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

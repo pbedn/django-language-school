@@ -56,6 +56,7 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path("", include("school.accounts.urls")),
+    path("accounts/", include("school.accounts.urls")),
+    path("", include("school.courses.urls")),
     path("admin/", admin.site.urls),
 ]
