@@ -25,7 +25,7 @@ class StudentListViewTest(TestCase):
         self.assertTemplateUsed("accounts/student_list.html")
 
     def test_url_has_correct_reverse_url(self):
-        self.assertEqual(reverse("student_list"), "/student/")
+        self.assertEqual(reverse("student_list"), "/accounts/student/")
 
 
 class StudentCreateViewTest(TestCase):
@@ -43,7 +43,7 @@ class StudentCreateViewTest(TestCase):
         self.assertTemplateUsed("accounts/student_create.html")
 
     def test_url_has_correct_reverse_url(self):
-        self.assertEqual(reverse("student_create"), "/student/create/")
+        self.assertEqual(reverse("student_create"), "/accounts/student/create/")
 
     def test_get(self):
         response = self.client.get(reverse("student_create"))
@@ -107,7 +107,7 @@ class StudentDetailViewTest(TestCase):
 
     def test_url_has_correct_reverse_url(self):
         url = reverse("student_detail", args=[self.student.pk])
-        self.assertEqual(url, "/student/detail/{}/".format(self.student.pk))
+        self.assertEqual(url, "/accounts/student/detail/{}/".format(self.student.pk))
 
 
 class StudentUpdateViewTest(TestCase):
@@ -127,7 +127,7 @@ class StudentUpdateViewTest(TestCase):
 
     def test_url_has_correct_reverse_url(self):
         url = reverse("student_update", args=[self.student.pk])
-        self.assertEqual(url, "/student/update/{}/".format(self.student.pk))
+        self.assertEqual(url, "/accounts/student/update/{}/".format(self.student.pk))
 
     def test_get(self):
         url = reverse("student_update", args=[self.student.pk])
@@ -196,7 +196,7 @@ class StudentDeleteViewTest(TestCase):
 
     def test_url_has_correct_reverse_url(self):
         url = reverse("student_delete", args=[self.student.pk])
-        self.assertEqual(url, "/student/delete/{}/".format(self.student.pk))
+        self.assertEqual(url, "/accounts/student/delete/{}/".format(self.student.pk))
 
     def test_url_redirects_correctly(self):
         url = reverse("student_delete", args=[self.student.pk])
@@ -232,7 +232,7 @@ class TeacherListViewTest(TestCase):
         self.assertTemplateUsed("accounts/teacher_list.html")
 
     def test_url_has_correct_reverse_url(self):
-        self.assertEqual(reverse("teacher_list"), "/teacher/")
+        self.assertEqual(reverse("teacher_list"), "/accounts/teacher/")
 
 
 class TeacherCreateViewTest(TestCase):
@@ -250,7 +250,7 @@ class TeacherCreateViewTest(TestCase):
         self.assertTemplateUsed("accounts/teacher_create.html")
 
     def test_url_has_correct_reverse_url(self):
-        self.assertEqual(reverse("teacher_create"), "/teacher/create/")
+        self.assertEqual(reverse("teacher_create"), "/accounts/teacher/create/")
 
     def test_get(self):
         response = self.client.get(reverse("teacher_create"))
@@ -317,7 +317,7 @@ class TeacherDetailViewTest(TestCase):
 
     def test_url_has_correct_reverse_url(self):
         url = reverse("teacher_detail", args=[self.teacher.pk])
-        self.assertEqual(url, "/teacher/detail/{}/".format(self.teacher.pk))
+        self.assertEqual(url, "/accounts/teacher/detail/{}/".format(self.teacher.pk))
 
 
 class TeacherUpdateViewTest(TestCase):
@@ -337,7 +337,7 @@ class TeacherUpdateViewTest(TestCase):
 
     def test_url_has_correct_reverse_url(self):
         url = reverse("teacher_update", args=[self.teacher.pk])
-        self.assertEqual(url, "/teacher/update/{}/".format(self.teacher.pk))
+        self.assertEqual(url, "/accounts/teacher/update/{}/".format(self.teacher.pk))
 
     def test_get(self):
         url = reverse("teacher_update", args=[self.teacher.pk])
@@ -409,7 +409,7 @@ class TeacherDeleteViewTest(TestCase):
 
     def test_url_has_correct_reverse_url(self):
         url = reverse("teacher_delete", args=[self.teacher.pk])
-        self.assertEqual(url, "/teacher/delete/{}/".format(self.teacher.pk))
+        self.assertEqual(url, "/accounts/teacher/delete/{}/".format(self.teacher.pk))
 
     def test_url_redirects_correctly(self):
         url = reverse("teacher_delete", args=[self.teacher.pk])
