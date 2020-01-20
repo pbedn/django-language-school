@@ -51,9 +51,7 @@ class StudentForm(ModelForm):
         )
         widgets = {
             "phone": forms.NumberInput(),
-            "date_of_birth": forms.DateInput(
-                attrs={'type': 'date'}
-            ),
+            "date_of_birth": forms.DateInput(attrs={"type": "date"}),
             "company_tax_number": forms.NumberInput(),
         }
 
@@ -89,7 +87,5 @@ class TeacherForm(ModelForm):
         )
         widgets = {
             "phone": forms.NumberInput(),
-            "date_of_birth": forms.DateInput(
-                attrs={'type': 'date'}
-            ),
+            "date_of_birth": forms.DateInput(attrs={"type": "date"}),
         }

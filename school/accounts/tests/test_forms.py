@@ -77,16 +77,16 @@ class StudentFormTest(TestCase):
 
     def setUp(self):
         self.correct_form = {
-                "email": "test@example.com",
-                "first_name": "Student",
-                "last_name": "LastName",
-                "phone": "123456789",
-                "general_discount": 0,
-                "date_of_birth": datetime(2000, 1, 1),
-                "company_name": "",
-                "company_address": "",
-                "company_tax_number": "123-456789-5",
-            }
+            "email": "test@example.com",
+            "first_name": "Student",
+            "last_name": "LastName",
+            "phone": "123456789",
+            "general_discount": 0,
+            "date_of_birth": datetime(2000, 1, 1),
+            "company_name": "",
+            "company_address": "",
+            "company_tax_number": "123-456789-5",
+        }
 
     def test_student_form_is_valid(self):
         form = StudentForm(self.correct_form)
@@ -114,7 +114,14 @@ class StudentFormTest(TestCase):
         """
         form = StudentForm(self.correct_form)
         self.assertTrue(form.is_valid())
-        self.assertTrue(all(map(lambda x: x.isdigit(), form.cleaned_data["company_tax_number"].split('-'))))
+        self.assertTrue(
+            all(
+                map(
+                    lambda x: x.isdigit(),
+                    form.cleaned_data["company_tax_number"].split("-"),
+                )
+            )
+        )
         self.assertTrue(len(form.cleaned_data["company_tax_number"]) > 10)
 
 
@@ -125,15 +132,15 @@ class TeacherFormTest(TestCase):
 
     def setUp(self):
         self.correct_form = {
-                "email": "test@example.com",
-                "first_name": "Teacher",
-                "last_name": "LastName",
-                "phone": "123456789",
-                "notes": "",
-                "date_of_birth": datetime(2000, 1, 1),
-                "basic_course_rate": decimal.Decimal(0.0),
-                "basic_individual_lesson_rate": decimal.Decimal(0.0),
-            }
+            "email": "test@example.com",
+            "first_name": "Teacher",
+            "last_name": "LastName",
+            "phone": "123456789",
+            "notes": "",
+            "date_of_birth": datetime(2000, 1, 1),
+            "basic_course_rate": decimal.Decimal(0.0),
+            "basic_individual_lesson_rate": decimal.Decimal(0.0),
+        }
 
     def test_teacher_form_is_valid(self):
         form = TeacherForm(self.correct_form)

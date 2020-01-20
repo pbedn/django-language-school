@@ -20,17 +20,17 @@ class Course(models.Model):
     )
 
     class Meta:
-        ordering = ('-pk',)
+        ordering = ("-pk",)
 
     def __str__(self):
         """String for representing the Model object."""
         return self.name
 
     def get_absolute_url(self):
-        return reverse('course_detail', args=(self.pk,))
+        return reverse("course_detail", args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('course_update', args=(self.pk,))
+        return reverse("course_update", args=(self.pk,))
 
 
 class Lesson(models.Model):
@@ -56,17 +56,17 @@ class Lesson(models.Model):
     )
 
     class Meta:
-        ordering = ('-pk',)
+        ordering = ("-pk",)
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.course.name + ' - Lesson: ' + str(self.pk)
+        return self.course.name + " - Lesson: " + str(self.pk)
 
     def get_absolute_url(self):
-        return reverse('lesson_detail', args=(self.pk,))
+        return reverse("lesson_detail", args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('lesson_update', args=(self.pk,))
+        return reverse("lesson_update", args=(self.pk,))
 
     def get_total_price(self):
         """Return total price for all lessons"""
